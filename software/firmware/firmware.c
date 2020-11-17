@@ -2,6 +2,7 @@
 #include "periphs.h"
 #include "iob-uart.h"
 #include "iob_timer.h"
+#include <time.h>
 
 int main()
 {
@@ -13,7 +14,17 @@ int main()
   uart_init(UART_BASE, FREQ/BAUD);
 
   uart_printf("\nHello world!\n");
-  
+ 
+  long int numero[100];
+  int i;
+  srand(time(0));
+
+  for(i=0;i<100;i++)
+  {
+	numero[i] = rand();
+	uart_printf("%d \n ", numero[i]);
+  }
+
   uart_txwait();
 
   //read current timer count, compute elapsed time
