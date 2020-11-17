@@ -23,6 +23,8 @@ int main()
   {
 	numero[i] = rand();
 	uart_printf("%d \n ", numero[i]);
+	if (i!=0)
+		numero[i]=numero[i-1]+numero[i];
   }
 
   uart_txwait();
